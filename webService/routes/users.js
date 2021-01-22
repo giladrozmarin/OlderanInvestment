@@ -14,28 +14,19 @@ router.route('/users').
         Status: req.body.Status,
         roles: req.body.roles
     }
-    let data = await users.createUser(obj)
-     
-    return resp.json(data)
+    return resp.json(await users.createUser(obj))
             
     });
 //2.api/users/:userId - Is sign in
 router.route('/users/:userId').
     post( async (req,resp) =>
     {
-       
-      let data =  await users.authUser(req.params.userId)
-
-     return resp.json("Is sign in")
-            
+    return resp.json(await users.authUser(req.params.userId))  
     });
 //3.api/admin/users - Export all users data
 router.route('/admin/users').
-    get(async (req,resp) =>
+    get( async (req,resp) =>
     {
-      
-    let data = await users.getAllUsers()
-    return resp.json(data)
-            
+     return resp.json(await users.getAllUsers())           
     });
 module.exports = router; 

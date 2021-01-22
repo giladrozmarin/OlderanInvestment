@@ -41,16 +41,16 @@ exports.getAllUsers = function()
 {
     return new Promise((res,rej) =>
         {
-            User.find({}, function(err,users)
+            User.find({}, (err,users) =>
             {
                 if(err)
                 {
-                    res(err)
+                    rej(err)
                 }
                 else
                 {
                     
-                    rej(users)
+                    res(users)
                 }
             })
         })
