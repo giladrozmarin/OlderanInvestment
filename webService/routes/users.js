@@ -21,7 +21,7 @@ router.route('/users').
 router.route('/users/:userId').
     post( async (req,resp) =>
     {
-    return resp.json(await users.authUser(req.params.userId))  
+    return resp.json(await users.authUser(req.params.userId,req.body.user_data))  
     });
 //3.api/admin/users - Export all users data
 router.route('/admin/users').

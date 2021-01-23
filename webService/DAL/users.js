@@ -37,6 +37,24 @@ exports.getUserById = (id) => {
     }})
  
 }
+
+exports.getUserByUserName= (userName,password) => {
+ 
+    return new Promise((res, rej) => {
+    {
+        User.find({Username : userName , Password: password },(err,user)=>
+        {
+            if(err){ 
+                rej(err)
+            } else{
+                res(user) 
+            }
+        })
+    }})
+ 
+}
+
+
 exports.getAllUsers = function()
 {
     return new Promise((res,rej) =>

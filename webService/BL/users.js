@@ -12,11 +12,14 @@ exports.createUser =  async (obj) => {
 }
 
 
-exports.authUser = async (id) => {
+exports.authUser = async (id,user_data) => {
      try{
-     let data = await users.getUserById(id)
-     return data
+     //let data = await users.getUserById(id)
+     let {username,password} =user_data
+     let data = await users.getUserByUserName(username,password)
      //check if its true/false
+     return data.length === 0 ? false : true
+     
      
      }
      catch(err){
