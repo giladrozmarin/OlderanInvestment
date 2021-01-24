@@ -7,7 +7,8 @@ export default function Login () {
     const [user,setUser] = useState([])
     const [err,setErr] = useState('')
     const [check,setCheck] = useState('')
-    function handleChange (e){
+
+    const handleChange = (e) => {
          const{name,value} = e.target
          setUser(prevState => ({...prevState,[name]:value}))
     }

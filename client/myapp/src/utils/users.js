@@ -11,17 +11,22 @@ const getAllUsers = async () => {
 
 const authUser = async (user_data) => {
     
-
-    let data = await axios.post(`http://localhost:3001/api/users/${user_data.username}`,
-    {
-        user_data
-    }
-    )
+    let data = await axios.post(`http://localhost:3001/api/users/${user_data.username}`,{user_data})
     
     return data.data
     
 }
-export {getAllUsers,authUser}
+
+
+const createUser = async (user) =>{
+
+    user.create_time= new Date()
+    
+    let data = await axios.post('http://localhost:3001/api/users',{user})
+
+    return data.data
+}
+export {getAllUsers,authUser,createUser}
 
 
 

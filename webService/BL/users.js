@@ -2,11 +2,13 @@ const users = require('../DAL/users')
 
 exports.createUser =  async (obj) => {
     try {
-     return(await users.createUser(obj))
      
+     await users.createUser(obj)
+     return true
     }
     catch (err) {
-        console.table(err)
+        
+       return err.keyValue
     }
    
 }

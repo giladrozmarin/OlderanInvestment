@@ -6,16 +6,7 @@ const users = require('../BL/users')
 router.route('/users').
     post( async (req,resp) =>
     {
-    let obj = {
-        Nickname: req.body.Nickname,
-        Username: req.body.Username,
-        Password: req.body.Password,
-        Create_time: req.body.Create_time,
-        Status: req.body.Status,
-        roles: req.body.roles
-    }
-    return resp.json(await users.createUser(obj))
-            
+    return resp.json(await users.createUser(req.body.user))    
     });
 //2.api/users/:userId - Is sign in
 router.route('/users/:userId').

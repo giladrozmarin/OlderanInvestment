@@ -4,11 +4,11 @@ exports.createUser = function (obj)
 {
     return new Promise((res,rej) => {
         const u = new User({
-            Nickname: obj.Nickname,
-            Username: obj.Username,
-            Password:obj.Password,
-            Create_time:obj.Create_time,
-            Status:obj.Status,
+            Nickname: obj.nickname,
+            Username: obj.username,
+            Password:obj.password,
+            Create_time:obj.create_time,
+            Status:obj.status,
             roles:obj.roles
         })
         u.save ((err,data)=> {
@@ -53,7 +53,6 @@ exports.getUserByUserName= (userName,password) => {
     }})
  
 }
-
 
 exports.getAllUsers = function()
 {

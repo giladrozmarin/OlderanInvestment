@@ -6,7 +6,13 @@ let UsersSchema = new Schema ({
    Username: { type: String, required: true, index: { unique: true } },
    Password: { type: String, required: true },
    Create_time: {type: Date, required: true },
-   Status: Number,
+   Status:{
+    type: [{
+        type: Number,
+        enum: [0, 1]
+    }],
+    default: [0]
+} ,
    roles: {
     type: [{
         type: String,
