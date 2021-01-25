@@ -2,6 +2,7 @@ const User  = require('../model/UsersModel')
 
 exports.createUser = function (obj) 
 {
+   
     return new Promise((res,rej) => {
         const u = new User({
             Nickname: obj.nickname,
@@ -9,12 +10,13 @@ exports.createUser = function (obj)
             Password:obj.password,
             Create_time:obj.create_time,
             Status:obj.status,
-            roles:obj.roles
+            roles:obj.role
         })
         u.save ((err,data)=> {
             if(err){ 
                 rej(err)
             } else{
+               
                 res(data) 
             }
         })
