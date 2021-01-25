@@ -1,33 +1,24 @@
-import axios from 'axios'
-
+import axios from "axios";
 
 const getAllUsers = async () => {
+  let data = await axios.get("/api/admin/users");
 
-    let data = await axios.get('http://localhost:3001/api/admin/users')
-    
-    return data.data
-    
-}
+  return data.data;
+};
 
 const authUser = async (user_data) => {
-    
-    let data = await axios.post(`http://localhost:3001/api/users/${user_data.username}`,{user_data})
-    
-    return data.data
-    
-}
+  let data = await axios.post(`/api/users/${user_data.username}`, {
+    user_data,
+  });
 
+  return data.data;
+};
 
-const createUser = async (user) =>{
+const createUser = async (user) => {
+  user.create_time = new Date();
 
-    user.create_time= new Date()
-    
-    let data = await axios.post('http://localhost:3001/api/users',{user})
+  let data = await axios.post("/api/users", { user });
 
-    return data.data
-}
-export {getAllUsers,authUser,createUser}
-
-
-
-
+  return data.data;
+};
+export { getAllUsers, authUser, createUser };
