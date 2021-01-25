@@ -1,10 +1,5 @@
-
-import CreateUser from '../components/CreateUser'
+import CreateUser from "../components/CreateUser";
 
 export default function createUser() {
-
-
-    return (
-    <CreateUser/>
-    )
+  return <CreateUser />;
 }
