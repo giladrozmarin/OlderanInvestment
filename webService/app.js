@@ -13,7 +13,8 @@ require('./configs/database');
 app.use(bodyParser.urlencoded({ extended: true }))  
    .use(bodyParser.json());
 app.use(cors())
+app.use(express.static('../client/myapp/build'));
 app.use('/api', usersRoutes);
 
    
-app.listen(3001);
+app.listen(5000);
