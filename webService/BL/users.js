@@ -19,9 +19,14 @@ exports.authUser = async (id,user_data) => {
      //let data = await users.getUserById(id)
      let {username,password} =user_data
      let data = await users.getUserByUserName(username,password)
+    
      //check if its true/false
-      
-     return data.length === 0 ? false : data[0].roles[0]
+      if(data.length === 0){
+       return   false }
+       else {
+           
+           users.findByIdAndUpdate(data[0]._id)
+        return data[0].roles[0]}
      
      
      }

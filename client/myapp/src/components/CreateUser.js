@@ -14,11 +14,11 @@ import {
 } from "@material-ui/core";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import { useStyles } from "../style/style";
- 
+
 
 export default function CreateUser() {
   const classes = useStyles();
- 
+  
   const [user, setUser] = useState([]);
   const [role, setRole] = useState('');
   const [err, setMessage] = useState('');
@@ -27,23 +27,27 @@ export default function CreateUser() {
     const { name, value } = e.target;
     setUser((prevState) => ({ ...prevState, [name]: value }));
   };
+
   const handleRole = (event) => {
-    
+
     setRole(event.target.value);
   };
+
   const handleSubmit = (e) => {
-   e.preventDefault();
-   user.role = role
-   let username = user.username
-  createUser(user).then((res) => {
-    res === true
-      ? setMessage(`${username} user created successfully`)
-      : res.Nickname !== undefined
-      ? setMessage(`This ${Object.keys(res)} :  ${res?.Nickname} is already exists`)
-      : res.Username !== undefined?
-      setMessage(`This ${Object.keys(res)} : ${res?.Username} is already exists`):
-      setMessage("Please fill all fields!!")
-  })}
+    e.preventDefault();
+    user.role = role
+    let username = user.username
+    createUser(user).then((res) => {
+      res === true
+        ? setMessage(`${username} user created successfully`)
+        : res.Nickname !== undefined
+          ? setMessage(`This ${Object.keys(res)} :  ${res?.Nickname} is already exists`)
+          : res.Username !== undefined ?
+            setMessage(`This ${Object.keys(res)} : ${res?.Username} is already exists`) :
+            setMessage("Please fill all fields!!")
+    })
+  }
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -89,7 +93,7 @@ export default function CreateUser() {
             autoComplete="current-password"
             required
             fullWidth
-            
+
           />
 
           <Select
@@ -119,10 +123,10 @@ export default function CreateUser() {
           </Button>
         </form>
       </div>
-      <Typography component="h6" variant="h6">{err}</Typography> 
+      <Typography component="h6" variant="h6">{err}</Typography>
       <Link href="/" variant="body2">
-              {"Back to login"}
-            </Link>
+        {"Back to login"}
+      </Link>
     </Container>
   );
 }

@@ -13,6 +13,7 @@ const getImages = async () => {
     let random_num = Math.floor(Math.random() * 5000);
     return (value = data.data[random_num]);
   });
+  
   return ten_img;
 };
 export { getImages };
