@@ -1,10 +1,5 @@
-import UserList from '../components/UserList'
+import UserList from "../components/UserList";
 
 export default function allUsers() {
-
-
-    return (
-    <UserList/>
-    
-    )
+  return <UserList />;
 }
