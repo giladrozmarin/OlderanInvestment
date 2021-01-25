@@ -2,7 +2,7 @@ const users = require('../DAL/users')
 
 exports.createUser =  async (obj) => {
     try {
-     
+       
      await users.createUser(obj)
      return true
     }
@@ -20,7 +20,8 @@ exports.authUser = async (id,user_data) => {
      let {username,password} =user_data
      let data = await users.getUserByUserName(username,password)
      //check if its true/false
-     return data.length === 0 ? false : true
+      
+     return data.length === 0 ? false : data[0].roles[0]
      
      
      }
